@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <style>
+      .navbar {
+        background-color: #c1d177 !important;
+        padding: 15px 25x;
+        box-shadow: 0 2px 12px rgba(239, 182, 200, 0.25);
+      }
+      .navbar-brand img {
+        transition: 0.3s ease;
+      }
+      .navbar-brand img:hover {
+        transform: scale(1.08);
+      }
+      .navbar-nav {
+        gap: 8px;
+      }
+      .navbar-nav .nav-link {
+        color: #8e4a63;
+        font-weight: 500;
+        padding: 10px 10px !important;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+      }
+      .navbar-nav .nav-link:hover {
+        background-color: #8e4a63;
+        color: #cf6060;
+      }
+      .navbar-nav .nav-link.active {
+        background-color: #8e4a63;
+        color: #cf6060;
+        border-radius: 25px;
+        font-weight: 600;
+      }
+      .dropdown-menu {
+        background-color: #8e4a63;
+        border: 1px solid #8e4a63;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(239, 182, 200, 0.25);
+        padding: 8px;
+      }
+      .dropdown-item {
+        color: #8e4a63;
+        border-radius: 10px;
+        padding: 10px 15px;
+        transition: 0.3s;
+      }
+
+      .dropdown-item:hover {
+        background-color: #8e4a63;
+        color: #9e526f;
+      }
+      .dropdown-divider {
+        border-color: #8e4a63;
+      }
+      .navbar-toggler {
+        border: 2px solid #8e4a63;
+        border-radius: 10px;
+      }
+      .navbar-toggler:focus {
+        box-shadow: 0 0 0 3px rgba(239, 182, 200, 0.25);
+      }
+
+      @media (max-width: 991px) {
+        .navbar-nav {
+          gap: 5px;
+          margin-top: 15px;
+        }
+
+        .navbar-nav .nav-link {
+          text-align: center;
+        }
+      }
+      body {
+        background-color: rgb(245, 206, 222);
+        color: #2c1a1d;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      .font-display {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 700;
+        color: #2c1a1d;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .nav-item > a {
+        font-size: 14px;
+      }
+
+      .text-content h1 {
+        font-size: 3rem;
+        line-height: 1.12;
+      }
+
+      @media (max-width: 768px) {
+        .text-content h1 {
+          font-size: 2rem;
+        }
+      }
+
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        padding: 4rem 0 5rem;
+      }
+
+      /* Maskot animasi */
+      @keyframes floatMascot {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-18px) rotate(1.5deg);
+        }
+      }
+      .animate-mascot {
+        animation: floatMascot 4.5s ease-in-out infinite;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 350px;
+      }
+
+      .hero-pod {
+        position: absolute;
+        inset: 1rem;
+        background: linear-gradient(
+          180deg,
+          #c1d177 0%,
+          rgba(175, 64, 90, 0.4) 60%,
+          #85d361 100%
+        );
+        border-radius: 190px;
+        box-shadow: 0 14px 28px -6px rgba(216, 67, 96, 0.12);
+        border: 3px solid #e7c4cf;
+        transform: rotate(2deg);
+      }
+      /* TRUST BAR */
+      .trust-bar {
+        padding: 2rem 0;
+        background-color: #fcfcfc;
+        border-top: 1px solid #f2ced6;
+        border-bottom: 1px solid #f2ced6;
+      }
+
+      .trust-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background-color: #fce7ec;
+        color: #e2002d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      /* ================== KATEGORI ================== */
+      .kategori-card {
+        background: #fffdfd;
+        border: 1px solid #cf29b9;
+        border-radius: 24px;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        height: 100%;
+      }
+      .kategori-card:hover {
+        box-shadow: 0 14px 28px -6px rgba(216, 67, 96, 0.12);
+        transform: translateY(-3px);
+      }
+      .kategori-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1rem;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+        background-color: #fce7ec;
+        color: #d84360;
+        transition: transform 0.3s ease;
+      }
+      .kategori-card:hover .kategori-icon {
+        transform: scale(1.1);
+      }
+      .kategori-icon.brown {
+        background-color: #d2956f;
+        color: #fee5cd;
+      }
+      .kategori-icon.cream {
+        background-color: #feedd0;
+        color: #601e04;
+      }
+      .kategori-icon.cherry {
+        background-color: #fff2f7;
+        color: #ed6260;
+      }
+      .kategori-icon.gift {
+        background-color: #fdeccd;
+        color: #fc9b87;
+      }
+
+      /* best seller */
+      .bestseller-section {
+        padding: 4rem 0;
+        background-color: #fff;
+        border-top: 1px solid #f2ced6;
+        border-bottom: 1px solid #f2ced6;
+      }
+      .product-card {
+        background-color: #fff2f5;
+        border: 1px solid #f2ced6;
+        border-radius: 30px;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+      .product-card:hover {
+        box-shadow: 0 14px 28px -6px rgba(216, 67, 96, 0.12);
+      }
+      .product-img-wrap {
+        position: relative;
+        height: 220px;
+        background-color: #fff8f0;
+        border: 1px solid #f2ced6;
+        border-radius: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .product-img-wrap.choco {
+        background-color: rgba(255, 238, 200);
+      }
+      .product-tag {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        color: #d84360;
+        border: 1px solid #f2ced6;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .product-tag.green {
+        color: #5b8a61;
+      }
+
+      .product-tag .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #d84360;
+      }
+
+      .product-tag.green .dot {
+        background-color: #5b8a61;
+      }
+
+      .product-icon {
+        width: 200px;
+        height: 200px;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover .product-icon {
+        transform: scale(1.05);
+      }
+
+      .product-footer {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(242, 206, 214, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      /* ============== TENTANG ================== */
+      .tentang-section {
+        padding: 4rem 0;
+      }
+      .tentang-card {
+        background: linear-gradient(
+          180deg,
+          #c1d177 0%,
+          rgba(241, 196, 207, 0.4) 60%,
+          #f5bcd4 100%
+        );
+        border: 1px solid #417219;
+        border-radius: 36px;
+        padding: 3rem 2rem;
+        box-shadow: 0 14px 2px -6px rgba(223, 217, 218, 0.12);
+      }
+      .mascot-badge-circle {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      /* ==================== TESTIMONI ==================== */
+.testimoni-section {
+    padding: 4rem 0;
+    background-color: #f7e1e7;
+    border-top: 1px solid #ecd4d9;
+    border-bottom: 1px solid #f1e1e5;
+}
+.testi-card {
+    background-color: #FFF2F5;
+    border: 1px solid #924556;
+    border-radius: 24px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.testi-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    background-color: #ebd9e0;
+    color: #D84360;
+}
+.testi-avatar.cream {
+    background-color: #FFF8F0;
+    color: #2C1A1D;
+}
+.testi-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.testi-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="gambar/logo bunga.png" alt="" width="180" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Kategori</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Favorite Pelanggan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tentang Florist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tastemoni</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item">
+              <a href="#" class="btn btn-light position-relative rounded-pill">
+                <i class="bi bi-cart3"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  99+
+                  <span class="visually-hidden">Keranjang Kosong</span>
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="fw-bold btn btn-danger">Pesan Sekarang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main id="main-content">
+      <section class="hero-section" id="home">
+        <div class="container position-relative" style="z-index: 1">
+          <div class="row align-items-center">
+            <div class="col-lg-7">
+              <h1 class="mb-3"></h1>
+              <p
+                class="text-secondary mb-4 mx-auto nx-lg-0"
+                style="max-width: 36rem; color: #73575c !important"
+              ></p>
+              <h1>
+                Pilihan Bunga Untuk Momen Berharga Dari
+                <span class="text-danger">Florist</span>
+              </h1>
+              <p>
+                Temukan rangkaian bunga indah dan segar dari Florist untuk
+                melengkapi setiap momen spesial. Pilih bunga favoritmu dan
+                biarkan kami membantu membuatnya lebih berkesan.
+              </p>
+              <div class="action">
+                <a href="#" class="btn btn-danger">Lihat Koleksi</a>
+                <a href="#" class="btn btn-info">Tentang Kami</a>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="hero-image-wrapper">
+                <div class="hero-pod"></div>
+                <img
+                  src="gambar/mskott.png"
+                  alt="Maskot Florist"
+                  class="img-fluid position-relative animate-mascot"
+                  style="z-index: 1; max-width: 310px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-bar">
+        <div class="container">
+          <div class="row g-4 text-center">
+            <div class="col-6 col-md-3">
+              <div
+                class="d-flex align-items-center justify-content-center gap-3"
+              >
+                <div class="trust-icon">
+                  <i class="bi-shield-check"></i>
+                </div>
+                <div class="text-start">
+                  <h4 class="h6 mb-0 fw-bold">Bunga Berkualitas</h4>
+                  <p class="small text-secondary mb-0">
+                    Bunga segar dengan kualitas terbaik
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div
+                class="d-flex align-items-center justify-content-center gap-3"
+              >
+                <div class="trust-icon">
+                  <i class="bi-check-circle"></i>
+                </div>
+                <div class="text-start">
+                  <h4 class="h6 mb-0 fw-bold">Custom Bouquet</h4>
+                  <p class="small text-secondary mb-0">
+                    Rangkaian bunga yg bisa di sesuaikan sesuai keinginanamu
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                class="d-flex align-items-center justify-content-center gap-3"
+              >
+                <div class="trust-icon">
+                  <i class="bi-stars"></i>
+                </div>
+                <div class="text-start">
+                  <h4 class="h6 mb-0 fw-bold">Fresh and Beauty</h4>
+                  <p class="small text-secondary mb-0">
+                    Rangkaian bunga indah dan selalu segar
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div
+                class="d-flex align-items-center justify-content-center gap-3"
+              >
+                <div class="trust-icon">
+                  <i class="bi-heart-fill"></i>
+                </div>
+                <div class="text-start">
+                  <h4 class="h6 mb-0 fw-bold">Made With Love</h4>
+                  <p class="small text-secondary mb-0">
+                    Setiap bouqet dibuat dengan penuh cinta
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- kategori -->
+      <section id="kategori" class="py-5">
+        <div class="container text-center">
+          <span
+            class="text-danger fw-bold text-uppercase small"
+            style="letter-spacing: 0.05em"
+            >Kategori Bunga</span
+          >
+          <h2 class="mt-1">Bunga Pilihan Terbaik</h2>
+
+          <div class="row g-4">
+            <div class="col-6 col-md-3">
+              <div class="kategori-card">
+                <div class="kategori-icon">
+                  <img src="gambar/icon/gift.svg" alt="buku-" width="50px" />
+                </div>
+                <h3 class="h6 mb-1">Flower Box</h3>
+                <p class="smal text-secondary mb-0">
+                  Rangkaian bunga dalam kotak yang indah
+                </p>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="kategori-card">
+                <div class="kategori-icon">
+                  <img
+                    src="gambar/icon/bouquet-flowers-gift.svg"
+                    alt=""
+                    width="45px"
+                  />
+                </div>
+                <h3 class="h6 mb-1">Hand Flower</h3>
+                <p class="smal text-secondary mb-0">
+                  Buket bunga cantik untuk orang tersayang
+                </p>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="kategori-card">
+                <div class="kategori-icon">
+                  <img src="gambar/icon/flower (2).svg" alt="" width="45px" />
+                </div>
+                <h3 class="h6 mb-1">Bunga Meja</h3>
+                <p class="smal text-secondary mb-0">
+                  bunga untuk meja dan ruangan
+                </p>
+              </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+              <div class="kategori-card">
+                <div class="kategori-icon">
+                  <img
+                    src="gambar/icon/icons8-bouquet-48 (1).png"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+                <h3 class="h6 mb-1">Bunga Pernikahan</h3>
+                <p class="smal text-secondary mb-0">
+                  Rangkaian bunga untuk hari istimewa
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- BEST SELLER -->
+      <section id="bestseller" class="bestseller-selection">
+        <div class="container">
+          <div
+            class="d-flexcflex-colum flex-md-row align-items-md-end justify-content-between mb-5"
+          >
+            <div>
+              <span
+                class="text-danger fw-bold text-uppercase small"
+                style="letter-spacing: 0.05em"
+                >Koleksi Paling Dicari</span
+              >
+              <h2 class="mt-1">Koleksi Keluaran Minggu Ini</h2>
+            </div>
+
+            <div class="row g-4">
+              <!-- Card 1 -->
+              <div class="col-md-6 col-lg-4">
+                <article class="product-card">
+                  <div>
+                    <div class="product-img-wrap">
+                      <div class="product-tag">
+                        <span class="dot"></span>
+                        <span>Florist Flower</span>
+                      </div>
+                      <span>
+                        <img
+                          src="GAMBAR/lily.jpg"
+                          alt="Rosé Glow Cushion"
+                          class="img-fluid"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <div
+                      class="d-flex align-items-center justify-content-beetween"
+                    >
+                      <span
+                        class="small fw-semibold text-secondary text-uppercase"
+                        style="letter-spacing: 0.05em"
+                        >wedding flower</span
+                      >
+                      <span class="small fw-bold text-warning"
+                        ><i class="bi bi-star-fill"></i>4.9 (4 tersisa)</span
+                      >
+                    </div>
+                    <h3 class="h5 mt-2 mb-1">Karangan Bunga Pernikahan</h3>
+                    <p class="small text-secondary mb-0">
+                      Perpaduan elegan bunga mawar dan lily putih yang dirangkai
+                      khusus untuk dekorasi pernikahan. Desainnya klasik dan
+                      romantis, cocok untuk pegangan pengantin atau dekorasi
+                      pelaminan biar hari bahagiamu makin berkesan.
+                    </p>
+                    <div class="product-footer">
+                      <div>
+                        <span
+                          class="d-block"
+                          style="font-size: 11px; color: #2c1a1d"
+                          >Harga Paket = maskot</span
+                        >
+                        <span class="font-display fw-bold fs-5"
+                          >Rp 199.000</span
+                        >
+                      </div>
+                      <button
+                        onclick="handleAddToCart('Strawberry',88000)"
+                        class="btn btn-danger btn-sm fw-bold rounded-3 d-inline-flex align-items-center gap-2"
+                      >
+                        <i class="bi bi-plus-lg"></i> Pesan
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- card 2 -->
+              <div class="col-md-6 col-lg-4">
+                <article class="product-card">
+                  <div>
+                    <div class="product-img-wrap">
+                      <div class="product-tag">
+                        <span class="dot"></span>
+                        <span>Florist Flower</span>
+                      </div>
+                      <span>
+                        <img
+                          src="GAMBAR/daisy.jpg"
+                          alt="Rosé Glow Cushion"
+                          class="img-fluid"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <div
+                      class="d-flex align-items-center justify-content-beetween"
+                    >
+                      <span
+                        class="small fw-semibold text-secondary text-uppercase"
+                        style="letter-spacing: 0.05em"
+                        >HAND BOUQUET</span
+                      >
+                      <span class="small fw-bold text-warning"
+                        ><i class="bi bi-star-fill"></i>5.0 (6 tersisa)</span
+                      >
+                    </div>
+                    <h3 class="h5 mt-2 mb-1">Sweet Daisy Bouquet</h3>
+                    <p class="small text-secondary mb-0">
+                      Buket simple tapi manis dengan dominasi bunga daisy putih
+                      + baby breath, dibungkus kertas biru dengan pita. Pas
+                      banget buat hadiah dadakan, wisuda, anniversary, atau
+                      sekedar kasih surprise ke orang tersayang.
+                    </p>
+                    <div class="product-footer">
+                      <div>
+                        <span
+                          class="d-block"
+                          style="font-size: 11px; color: #2c1a1d"
+                          >Harga Paket = maskot</span
+                        >
+                        <span class="font-display fw-bold fs-5">Rp 50.000</span>
+                      </div>
+                      <button
+                        onclick="handleAddToCart('Strawberry',88000)"
+                        class="btn btn-danger btn-sm fw-bold rounded-3 d-inline-flex align-items-center gap-2"
+                      >
+                        <i class="bi bi-plus-lg"></i> Pesan
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- card 3 -->
+              <div class="col-md-6 col-lg-4">
+                <article class="product-card">
+                  <div>
+                    <div class="product-img-wrap">
+                      <div class="product-tag">
+                        <span class="dot"></span>
+                        <span>Florist Flower</span>
+                      </div>
+                      <span>
+                        <img
+                          src="GAMBAR/bunga matahri.jpg"
+                          alt="Rosé Glow Cushion"
+                          class="img-fluid"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <div
+                      class="d-flex align-items-center justify-content-beetween"
+                    >
+                      <span
+                        class="small fw-semibold text-secondary text-uppercase"
+                        style="letter-spacing: 0.05em"
+                        >Flower Box</span
+                      >
+                      <span class="small fw-bold text-warning"
+                        ><i class="bi bi-star-fill"></i>5.0 (3 tersisa)</span
+                      >
+                    </div>
+                    <h3 class="h5 mt-2 mb-1">Elegance Flower Box</h3>
+                    <p class="small text-secondary mb-0">
+                      Bunga segar dalam kotak cantik berisi campuran mawar pink,
+                      bunga matahari, dan bunga pansy. Tinggal kasih kartu
+                      ucapan, langsung siap dikirim. Cocok untuk hadiah ulang
+                      tahun, get well soon, atau dekor meja
+                    </p>
+                    <div class="product-footer">
+                      <div>
+                        <span
+                          class="d-block"
+                          style="font-size: 11px; color: #2c1a1d"
+                          >Harga Paket = maskot</span
+                        >
+                        <span class="font-display fw-bold fs-5"
+                          >Rp 220.000</span
+                        >
+                      </div>
+                      <button
+                        onclick="handleAddToCart('Strawberry',88000)"
+                        class="btn btn-danger btn-sm fw-bold rounded-3 d-inline-flex align-items-center gap-2"
+                      >
+                        <i class="bi bi-plus-lg"></i> Pesan
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- tentang -->
+      <section id="tentang" class="tentang-section">
+        <div class="container">
+          <div class="tentang-card">
+            <div class="row g-5 align-items-center">
+              <div class="col-lg-5 text-center">
+                <div class="mascot-badge-circle">
+                  <img src="gambar/bung.png" alt="" class="img-fluid" />
+                </div>
+                <h3 class="h5 mt-4"></h3>
+                <p class="small text-secondary mb-0"></p>
+              </div>
+              <div class="col-lg-7">
+                <span
+                  class="text-danger fw-bold text-uppercase small"
+                  style="letter-spacing: 0.05em"
+                  >Tentang Florist</span
+                >
+                <h2 class="mt-2">Bunga Bunga Dari florist</h2>
+                <p class="text-secondary">
+                  Florist adalah toko bunga yang menghadirkan berbagai rangkaian
+                  bunga untuk menemani momen-momen berharga. Mulai dari bunga
+                  pernikahan hingga rangkaian untuk hadiah, setiap pilihan bunga
+                  dirancang dengan perpaduan yang indah dan sesuai dengan
+                  suasana. Florist hadir untuk membantu menyampaikan perasaan
+                  melalui keindahan bunga yang sederhana, hangat, dan bermakna.
+                </p>
+                <div class="row g-3 pt-2">
+                  <div class="col-sm-6">
+                    <div
+                      class="bg-white rounded-3 border p-3 small fw-bold d-flex align-items-center gap-2"
+                      style="border-color: #f2ced6 !important"
+                    >
+                      <span
+                        class="d-inline-block rounded-circle bg-danger"
+                        style="width: 8px; height: 8px"
+                      ></span>
+                      Hand Flower Untuk Hadiah
+                    </div>
+                  </div>
+               
+
+                <div class="col-sm-6">
+                  <div
+                    class="bg-white rounded-3 border p-3 small fw-bold d-flex align-items-center gap-2"
+                    style="border-color: #f2ced6 !important"
+                  >
+                    <span
+                      class="d-inline-block rounded-circle bg-danger"
+                      style="width: 8px; height: 8px"
+                    ></span>
+                    Flower Box Untuk Momen special
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div
+                    class="bg-white rounded-3 border p-3 small fw-bold d-flex align-items-center gap-2"
+                    style="border-color: #f2ced6 !important"
+                  >
+                    <span
+                      class="d-inline-block rounded-circle bg-danger"
+                      style="width: 8px; height: 8px"
+                    ></span>
+                    Wedding Flower Untuk Pernikahan
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONI -->
+      <section id="testimoni" class="testimoni-section">
+        <div class="container">
+          <div class="text-center mx-auto mb-5" style="max-width: 36rem;">
+            <span class="text-danger fw-bold text-uppercase small"
+             style="letter-spacing: .05em;">Kata Mereka</span>
+             <h2 class="mt-1">Ulasan Pelanggan Setia</h2>
+          </div>
+          <div
+            class="carousel slide"
+            id="carouselExampleSlideOnly"
+            data-bs-ride="carousel"
+            data-bs-interval="3000"
+          >
+            <div class="carousel-inner">
+              <!-- slide 1 -->
+              <div
+                class="carousel-item active"
+                style="color: black !important; border: none !important"
+              >
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="testi-card">
+                      <div>
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="small mb-0">
+                          pelayanannya ramah dan prosesnya cepat
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-3 mt-4 pt-4 border-top"
+                      >
+                        <div class="testi-avatar">
+                          <img src="gambar/rose.jpg" alt="Sarjui Pausan" />
+                        </div>
+                        <div>
+                          <h4 class="h6 mb-0">Saruji Pausan</h4>
+                          <span class="small text-secondary">Bangladesh</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="testi-card">
+                      <div>
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="small mb-0">
+                         packingnya rapi, bunganya juga fresh
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-3 mt-4 pt-4 border-top"
+                      >
+                        <div class="testi-avatar">
+                          <img src="gambar/lisa.jpg" alt="Sarjui Pausan" />
+                        </div>
+                        <div>
+                          <h4 class="h6 mb-0">Eka Purwanti</h4>
+                          <span class="small text-secondary">Kamboja</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="testi-card">
+                      <div>
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="small mb-0">
+                          di aku kok lama ya pengirimnya, tapi bagus sih
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-3 mt-4 pt-4 border-top"
+                      >
+                        <div class="testi-avatar">
+                          <img src="gambar/Hanni_241022.png" alt="Sarjui Pausan" />
+                        </div>
+                        <div>
+                          <h4 class="h6 mb-0">Abdul Razak</h4>
+                          <span class="small text-secondary">Timor Leste</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- slide 2 -->
+              <div class="carousel-item" >
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="testi-card">
+                      <div>
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="small mb-0">
+                          super puas, elegant banget
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-3 mt-4 pt-4 border-top"
+                      >
+                        <div class="testi-avatar">
+                          <img src="gambar/Jisoo.webp" alt="Sarjui Pausan" />
+                        </div>
+                        <div>
+                          <h4 class="h6 mb-0">Salma Salsabil</h4>
+                          <span class="small text-secondary">Jepang</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="testi-card">
+                      <div>
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="small mb-0">
+                         aku baru aja sampe orderan flower box yg keluaran baru, pls? bgs mana murh lagi 
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-3 mt-4 pt-4 border-top"
+                      >
+                        <div class="testi-avatar">
+                          <img src="gambar/krina.webp" alt="Sarjui Pausan" />
+                        </div>
+                        <div>
+                          <h4 class="h6 mb-0">Boo Seok</h4>
+                          <span class="small text-secondary">Korea Utara</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="testi-card">
+                      <div>
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="small mb-0">
+                       aku disini biasanya beli langsung, fav banget udah 4x 
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-center gap-3 mt-4 pt-4 border-top"
+                      >
+                        <div class="testi-avatar">
+                          <img src="gambar/images.jpg" alt="Sarjui Pausan" />
+                        </div>
+                        <div>
+                          <h4 class="h6 mb-0">Song Hye Kyo</h4>
+                          <span class="small text-secondary">Amerika Serikat</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+    </main>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
